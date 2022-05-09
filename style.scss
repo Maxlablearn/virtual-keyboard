@@ -1,0 +1,184 @@
+
+/* roboto-regular - latin_cyrillic */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url('../src/fonts/roboto-v29-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../src/fonts/roboto-v29-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-900 - latin_cyrillic */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''),
+        url('../src/fonts/roboto-v29-latin_cyrillic-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../src/fonts/roboto-v29-latin_cyrillic-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+h1 {
+    color: red;
+    margin: 1vw 0 0 0;
+}
+body {
+    font-family: Roboto;
+    font-size: 3vw;
+}
+
+.container {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.textarea {
+    font-size: 2vw;
+    width: 99%;
+    margin-top: 1vw;
+}
+
+.key-field {
+    display: flex;
+    flex-direction: column;
+    width: 97.5%;
+    row-gap: 1vw;
+    flex-wrap: wrap;
+    margin-top: 1vw;
+    border: 1px black solid;
+    padding: 1vw;
+    border-radius: 10px;
+    background-color: beige;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 1%;
+    justify-content: space-between;
+}
+
+@keyframes button-on {
+    from {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes button-off {
+    from {
+        transform: scale(0.8);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.key[data-keycode=MetaLeft] {
+    background: no-repeat center url("./src/images/windows.svg") burlywood;
+    background-size: 25%;
+}
+
+.key[data-keycode=ArrowUp],
+.key[data-keycode=ArrowDown] {
+    background: no-repeat center url("./src/images/up-arrow.svg") burlywood;
+}
+
+.key[data-keycode=ArrowLeft],
+.key[data-keycode=ArrowRight] {
+    background: no-repeat center url("./src/images/left-arrow.svg");
+    background-color:  burlywood;
+}
+
+.key[data-keycode^=Arrow] {
+    background-size: 25%;
+    color: transparent;
+}
+
+.key {
+    width: 5.8%;
+    height: 4.8vw;
+    background-color: burlywood;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    transition: 1000ms;
+    &:hover {
+        box-shadow: 0 0 10px gray;
+        transition: 300ms;
+    }
+    animation: button-off 300ms ease-in;
+    &.active {
+        // transition: 1500ms;
+        animation: button-on 300ms ease-in;
+        background-color: yellow;
+        // box-shadow: 0 0 10px gray inset;
+        transform: scale(0.8);
+    }
+}
+
+.key[data-keycode=Backspace],
+.key[data-keycode=CapsLock],
+.key[data-keycode=Enter]
+ {
+    width: 10%;
+    font-size: 1.5vw;
+}
+
+.key[data-keycode=Tab] {
+    width: 8%;
+    font-size: 1.5vw;
+}
+
+.key[data-keycode=ShiftLeft] {
+    width: 14%;
+    font-size: 1.5vw;
+}
+
+.key[data-keycode=ArrowUp],
+.key[data-keycode=ShiftRight],
+.key[data-keycode=ControlLeft],
+.key[data-keycode=ControlRight],
+.key[data-keycode=ArrowLeft],
+.key[data-keycode=ArrowDown],
+.key[data-keycode=ArrowRight] {
+    width: 8%;
+    font-size: 1.5vw;
+}
+
+.key[data-keycode=Space] {
+    width: 35%;
+    font-size: 1.5vw;
+}
+
+
+
+.key[data-keycode^=Alt] {
+    font-size: 1.5vw;
+}
+
+.key[data-keycode=ArrowRight],
+.key[data-keycode=ArrowDown] {
+    transform: rotate(180deg);
+}
+
+.description {
+    margin-top: 1vw;
+}
