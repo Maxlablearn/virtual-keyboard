@@ -66,9 +66,11 @@ class Keyboard {
 
   addMouseListeners() {
     this.keyField.addEventListener('mousedown', (event) => {
-      event.target.addEventListener('mouseout', (ev) => {
-        this.unShowPressedKey(ev.target.dataset.keycode);
-      });
+      if (event.target.dataset.keycode !== 'CapsLock') {
+        event.target.addEventListener('mouseout', (ev) => {
+          this.unShowPressedKey(ev.target.dataset.keycode);
+        });
+      }
       if (event.target.dataset.keycode === 'ShiftLeft' || event.target.dataset.keycode === 'ShiftRight') {
         this.shiftKeys();
       }
@@ -83,7 +85,9 @@ class Keyboard {
         if (event.target.dataset.keycode === 'ShiftLeft' || event.target.dataset.keycode === 'ShiftRight') {
           this.unShiftKeys();
         }
-        this.unShowPressedKey(event.target.dataset.keycode);
+        if (event.target.dataset.keycode !== 'CapsLock') {
+          this.unShowPressedKey(event.target.dataset.keycode);
+        }
       }
     });
   }
